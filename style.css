@@ -1,0 +1,31 @@
+/* Main styling for the interactive emoji-trace page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    user-select: none; /* Disable text selection */
+}
+
+#cat img {
+    max-width: 50%; /* 50% smaller image */
+    height: auto;
+    cursor: pointer;
+    user-drag: none; /* Disable default image drag */
+    -webkit-user-drag: none; /* Disable drag for WebKit browsers */
+    user-select: none;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 1.5rem; /* Emoji size */
+    color: red;
+    animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
