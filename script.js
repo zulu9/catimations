@@ -24,7 +24,9 @@ function createEmoji(x, y) {
 // Start dragging
 catImage.addEventListener("mousedown", function(event) {
     isDragging = true;
-    createEmoji(event.offsetX, event.offsetY); // Create an emoji on initial click
+    // Calculate the correct initial emoji position relative to the image
+    const rect = catImage.getBoundingClientRect();
+    createEmoji(event.clientX - rect.left, event.clientY - rect.top);
 });
 
 // Stop dragging
@@ -40,6 +42,8 @@ catImage.addEventListener("dragstart", function(event) {
 // Create emoji trace on mouse move when dragging
 catImage.addEventListener("mousemove", function(event) {
     if (isDragging) {
-        createEmoji(event.offsetX, event.offsetY);
+        // Calculate the correct emoji position relative to the image
+        const rect = catImage.getBoundingClientRect();
+        createEmoji(event.clientX - rect.left, event.clientY - rect.top);
     }
 });
